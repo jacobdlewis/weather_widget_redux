@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     del  = require('del'),
     sass = require('gulp-sass'),
     jade = require('gulp-jade'),
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'),
+    connect = require('gulp-connect');
 
 gulp.task('clean', function () {
   del(['.tmp', 'public/*.html', 'public/styles/*.css']);
@@ -30,4 +31,23 @@ gulp.task('moveJs', function() {
     .pipe(gulp.dest('public/js'));
 });
 
-gulp.task('default', ['clean', 'sass', 'jade', 'moveJs']);
+gulp.task('moveBowerComponents', function() {
+  gulp
+    .src('bower_components/**/*')
+    .pipe(gulp.dest('public/vendor'));
+});
+
+gulp.task('connect', function() {
+  connect.server({
+    port: 8000,
+    root: 'public',
+    livereload: true
+  });
+});
+
+gulp.task('watch', function() {
+  gulp.watch(['./app/**/*'], ['build']);
+});
+
+gulp.task('build', ['clean', 'sass', 'jade', 'moveJs', 'moveBowerComponents']);
+gulp.task('default', ['connect', 'watch']);
