@@ -17,7 +17,15 @@ html(lang='en-US')
         .row
           .col.s10.offset-s1
             h2.center-align 3-Day Forecast
-            .row#five-day-forecast
+            .row
+              .col.s10.offset-s1
+                .row
+                  form.input-field
+                    input(placeholder="" id="userZip" type="text").col.s9
+                    label(for="userZip") Zip:
+                    button.btn.col.s3#submitZip Go
+            .row#cityName.city-name
+            .row#fiveDayForecast
     footer.page-footer
       .footer-copyright
         .container © 2015
@@ -27,4 +35,5 @@ html(lang='en-US')
 
     script(src='vendor/jquery/dist/jquery.min.js')
     script(src='vendor/lodash/lodash.min.js')
+    script(src='vendor/materialize/dist/js/materialize.min.js')
     script(src='js/index.js')
