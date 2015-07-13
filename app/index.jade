@@ -4,25 +4,25 @@ html(lang='en-US')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title My Title
+    title How Hot is it?
     link(rel='stylesheet', href='vendor/materialize/dist/css/materialize.min.css')
     link(rel='stylesheet', href='css/base.css')
   body
-    .container
+    header
       nav
         .nav-wrapper
-          a.brand-logo(href='#') How Hot?
-          ul#nav-mobile.right.hide-on-med-and-down
-            li
-              a(href='sass.html') Sass
-            li
-              a(href='badges.html') Components
-            li
-              a(href='collapsible.html') JavaScript
-      .row
-        .col.s10.offset-s1
-          h2.center-align 5-Day Forecast
-          #five-day-forecast
+          a.brand-logo.center(href='#') How hot is it?
+    main
+      .container
+        .row
+          .col.s10.offset-s1
+            h2.center-align 3-Day Forecast
+            .row#five-day-forecast
+    footer.page-footer
+      .footer-copyright
+        .container © 2015
+          span.right Jacob Lewis
+
 
 
     script(src='vendor/jquery/dist/jquery.min.js')
