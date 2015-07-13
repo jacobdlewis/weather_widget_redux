@@ -9,7 +9,21 @@ html(lang='en-US')
     link(rel='stylesheet', href='css/base.css')
   body
     .container
-      h1 Hello World
+      nav
+        .nav-wrapper
+          a.brand-logo(href='#') How Hot?
+          ul#nav-mobile.right.hide-on-med-and-down
+            li
+              a(href='sass.html') Sass
+            li
+              a(href='badges.html') Components
+            li
+              a(href='collapsible.html') JavaScript
+      .row
+        .col.s10.offset-s1
+          h2.center-align 5-Day Forecast
+          #five-day-forecast
+
 
     script(src='vendor/jquery/dist/jquery.min.js')
     script(src='vendor/lodash/lodash.min.js')
